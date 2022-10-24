@@ -9,6 +9,8 @@ function validateAllAllInputs() {
   }
   if (!checkbox.checked) {
     return false;
+  } else {
+    return true;
   }
 }
 
@@ -54,7 +56,7 @@ CEPInput.addEventListener("keypress", () => {
   }
 });
 
-CEPInput.addEventListener("keydown", () => {
+CEPInput.addEventListener("keyup", () => {
   const inputLength = CEPInput.value.length;
 
   if (inputLength === 9) {
@@ -62,8 +64,25 @@ CEPInput.addEventListener("keydown", () => {
   }
 });
 
+const dateInput = document.querySelector("input[name=date]");
+
+dateInput.addEventListener("keypress", () => {
+  const inputLength = dateInput.value.length;
+
+  if (inputLength === 2 || inputLength === 5) {
+    dateInput.value += "/";
+  }
+});
+
+// ------------------------------------ //
+
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  if (validateAllAllInputs()) {
+    console.log("aceito");
+  } else {
+    console.log("djsa");
+  }
 });
