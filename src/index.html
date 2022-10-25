@@ -65,7 +65,7 @@
 
           <div class="input-container">
             <label>Estado:</label>
-            <input type="text" name="state" />
+            <input type="text" name="state" maxlength="2" />
           </div>
 
           <div class="input-container">
@@ -81,13 +81,19 @@
             </div>
           </div>
 
-          <button type="submit">Enviar</button>
+          <button class="submit-button" type="submit">Enviar</button>
         </form>
       </section>
-
-      <div class="modal-window"></div>
-      <div class="modal-fader"></div>
     </main>
+
+    <div id="modal-fade" class="hide"></div>
+    <div id="modal-window" class="hide">
+      <div class="modal-header">
+        <h1 class="title">Enviado com sucesso!</h1>
+        <button class="modal-close">Fechar</button>
+      </div>
+      <div class="modal-body"></div>
+    </div>
   </body>
 
   <script type="text/javascript" src="main.js"></script>

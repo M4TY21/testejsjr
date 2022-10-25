@@ -1,13 +1,49 @@
-function validateAllAllInputs() {
+function toggleModal() {
+  const modal = document.querySelector("#modal-window");
+  const fade = document.querySelector("#modal-fade");
+
+  modal.classList.toggle("hide");
+  fade.classList.toggle("hide");
+}
+
+function initModalConfig() {
+  const closeModal = document.querySelector(".modal-close");
+  const fade = document.querySelector("#modal-fade");
+
+  [closeModal, fade].forEach((element) => {
+    element.addEventListener("click", () => toggleModal());
+  });
+}
+
+function validateAllInputs() {
   const allInputs = document.querySelectorAll("input");
-  const checkbox = document.querySelector("input[type=checkbox]");
+  const cpf = document.querySelector("input[name=cpf]");
+  const date = document.querySelector("input[name=date]");
+  const cep = document.querySelector("input[name=cep]");
+  const checkbox = document.querySelector("input[name=lgpd]");
+
+  const cpfRegex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+  const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+  const cepRegex = /^\d{5}\-\d{3}$/;
 
   for (const input of allInputs) {
     if (input.value == "") {
       return false;
     }
   }
-  if (!checkbox.checked) {
+  if (cpf.value.length !== 14) {
+    return false;
+  } else if (cpfRegex.exec(cpf.value) == null) {
+    return false;
+  } else if (date.value.length !== 10) {
+    return false;
+  } else if (dateRegex.exec(date.value) == null) {
+    return false;
+  } else if (cep.value.length !== 9) {
+    return false;
+  } else if (cepRegex.exec(cep.value) == null) {
+    return false;
+  } else if (!checkbox.checked) {
     return false;
   } else {
     return true;
@@ -31,6 +67,8 @@ async function fetchCepInfos(cep) {
       stateInput.value = data.uf;
     });
 }
+
+initModalConfig();
 
 // Máscaras dos inputs
 
@@ -80,8 +118,8 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (validateAllAllInputs()) {
-    console.log("aceito");
+  if (validateAllInputs()) {
+    toggleModal();
   } else {
     console.log("djsa");
   }
