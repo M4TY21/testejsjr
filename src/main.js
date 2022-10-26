@@ -128,6 +128,6 @@ form.addEventListener("submit", (e) => {
     addModalInfos();
     toggleModal();
   } else {
-    console.log("djsa");
+    return;
   }
 });

@@ -6,11 +6,11 @@
 
 body,
 html {
+  height: 100%;
+
   font: 400 1rem "Poppins", sans-serif;
   background: #242424;
   color: #fafafa;
-
-  height: 100%;
 }
 
 main {
@@ -37,6 +37,7 @@ section {
 
 .title {
   font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
 }
 
@@ -44,7 +45,6 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 0.5rem;
 }
 
@@ -62,7 +62,7 @@ input:not([type="checkbox"]) {
 
   background: #e3e3e3;
   border: 0;
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
 
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
@@ -72,6 +72,7 @@ input:not([type="checkbox"]) {
 
 label {
   font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
 
@@ -92,6 +93,7 @@ label {
   margin-left: 0.2rem;
 
   font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
 
@@ -124,8 +126,8 @@ button:hover {
 
 #modal-fade,
 #modal-window {
-  transition: 0.5s;
   opacity: 1;
+  transition: opacity 0.5s;
   pointer-events: all;
 }
 
@@ -149,7 +151,7 @@ button:hover {
 
   padding: 1rem;
 
-  min-width: 350px;
+  min-width: 21.8rem;
   width: 55%;
 
   background: #0e1647;
